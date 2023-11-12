@@ -12,24 +12,9 @@ In this project, I built a Honeynet in Azure and ingest log sources from various
 - AzureNetworkAnalytics_CL (Malicious Flows allowed into our Honeynet)
 
 ## Architecture Before Hardening / Security Controls
-
-
-## Architecture After Hardening / Security Controls
-
-
-The architecture of the Honeynet in Azure consists of the following components:
-
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 Windows, 1 Linux)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
+![Open Public Network](https://github.com/ctstephens/Azure-SOC-Honeynet/assets/150542854/f355ddf5-4afc-4a2e-859c-8536d2cb056a)
 
 For the "BEFORE" metrics, all resources were originally deployed exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with Public Endpoints visible to the Internet; aka, no use for Private Endpoints.
-
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my Admin Workstation, and all other resources were protected by their built-in Firewalls as well as Private Endpoints.
 
 ## Attack Maps Before Hardening / Security Controls
 ![windows-rdp-auth-fail BEFORE](https://github.com/ctstephens/Azure-SOC-Honeynet/assets/150542854/28a3ebbb-0f01-4e1d-abd9-133f13612bc7)
@@ -50,6 +35,22 @@ Stop Time 2023-11-01 T12:23:23.
 | SecurityAlert            | 2
 | SecurityIncident         | 129
 | AzureNetworkAnalytics_CL | 1018
+
+
+## Architecture After Hardening / Security Controls
+![Secure Network](https://github.com/ctstephens/Azure-SOC-Honeynet/assets/150542854/8b9d4027-15ad-417e-b1bc-d18c97ea7f38)
+
+For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my Admin Workstation, and all other resources were protected by their built-in Firewalls as well as Private Endpoints.
+
+The architecture of the Honeynet in Azure consists of the following components:
+
+- Virtual Network (VNet)
+- Network Security Group (NSG)
+- Virtual Machines (2 Windows, 1 Linux)
+- Log Analytics Workspace
+- Azure Key Vault
+- Azure Storage Account
+- Microsoft Sentinel
 
 ## Attack Maps Before Hardening / Security Controls
 
